@@ -57,21 +57,19 @@ export default function Authorization({API_URL, setToken}) {
     };
 
     return (
-        <>
+        <form onSubmit={handleSubmit}>
             <h1>Авторизация</h1>
 
-            <form onSubmit={handleSubmit}>
-                <Input label="Email" type="email" name="email" id="email" value={formData.email} onChange={handleChange}
-                       placeholder="your_email@example.com" error={errors.email}/>
-                <Input label="Пароль" type="password" name="password" id="password" value={formData.password}
-                       onChange={handleChange} placeholder="Пароль" error={errors.password}/>
+            <Input label="Email" type="email" name="email" id="email" value={formData.email} onChange={handleChange}
+                   placeholder="your_email@example.com" error={errors.email}/>
+            <Input label="Пароль" type="password" name="password" id="password" value={formData.password}
+                   onChange={handleChange} placeholder="Пароль" error={errors.password}/>
 
-                {failAuth && <p className="error">Неверный логин или пароль</p>}
+            {failAuth && <p className="error">Неверный логин или пароль</p>}
 
-                <Button type="submit" loading={loading}>Войти</Button>
+            <Button type="submit" loading={loading}>Войти</Button>
 
-                <p>Ещё нет аккаунта? <Link to="/registration">Зарегистрироваться</Link></p>
-            </form>
-        </>
+            <p>Ещё нет аккаунта? <Link to="/registration">Зарегистрироваться</Link></p>
+        </form>
     )
 }

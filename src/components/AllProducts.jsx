@@ -46,18 +46,27 @@ export default function AllProducts({API_URL, token}) {
             .finally(() => setLoading(false));
     };
 
+    const [activeCategory, setActiveCategory] = useState(null);
+
     const handleClick = (id) => {
-        fetchProductsByCategory(id);
+        if (activeCategory === id) {
+            setActiveCategory(null);
+            fetchProducts();
+        } else {
+            setActiveCategory(id);
+            fetchProductsByCategory(id);
+        }
     };
 
     return (
         <>
-            <section className="categories">
+            <section className="categories mb-3">
                 <h2>Категории</h2>
 
                 <div className="categories-container">
                     {categories.map(category => (
-                        <Category key={category.id} name={category.name} onClick={() => handleClick(category.id)}/>
+                        <Category key={category.id} name={category.name} onClick={() => handleClick(category.id)}
+                                  isActive={category.id === activeCategory}/>
                     ))}
                 </div>
             </section>

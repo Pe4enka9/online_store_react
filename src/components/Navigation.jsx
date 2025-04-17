@@ -29,14 +29,25 @@ export default function Navigation({API_URL, token, setToken}) {
         <nav>
             {!token ? (
                 <>
-                    <NavLink to="/registration">Регистрация</NavLink>
-                    <NavLink to="/login">Вход</NavLink>
+                    <div>
+                        <NavLink to="/">Главная</NavLink>
+                    </div>
+
+                    <div>
+                        <NavLink to="/registration">Регистрация</NavLink>
+                        <NavLink to="/login">Вход</NavLink>
+                    </div>
                 </>
             ) : (
                 <>
-                    <NavLink to="/">Главная</NavLink>
-                    <NavLink to="/orders">Заказы</NavLink>
-                    <Button loading={loading} onClick={handleLogout}>Выход</Button>
+                    <div>
+                        <NavLink to="/">Главная</NavLink>
+                        <NavLink to="/orders">Заказы</NavLink>
+                    </div>
+
+                    <div>
+                        <Button loading={loading} danger={true} onClick={handleLogout}>Выход</Button>
+                    </div>
                 </>
             )}
         </nav>

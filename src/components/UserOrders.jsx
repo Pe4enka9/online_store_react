@@ -27,7 +27,7 @@ export default function UserOrders({API_URL, token}) {
 
     return (
         <>
-            <h1>Заказы</h1>
+            <h1 className="mb-3">Заказы</h1>
 
             <section className="orders-container">
                 {orders.map(order => (

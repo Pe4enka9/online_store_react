@@ -1,0 +1,37 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .categories-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    .category {
+      padding: .5em .8em;
+      
+      background-color: $main;
+
+      -webkit-border-radius: $smallRadius;
+      -moz-border-radius: $smallRadius;
+      border-radius: $smallRadius;
+
+      cursor: pointer;
+      transition: background-color .2s;
+
+      &:hover {
+        background-color: $mainHover;
+      }
+
+      &.active {
+        background-color: $secondary;
+      }
+
+      h3 {
+        color: $card;
+      }
+    }
+  }
+}

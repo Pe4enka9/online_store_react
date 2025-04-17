@@ -1,0 +1,37 @@
+.btn {
+  padding: .5em .8em;
+
+  color: $card;
+  background-color: $main;
+
+  outline: none;
+  border: none;
+  -webkit-border-radius: $smallRadius;
+  -moz-border-radius: $smallRadius;
+  border-radius: $smallRadius;
+
+  font-size: $font;
+  font-weight: 400;
+
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: $mainHover;
+  }
+
+  &.danger {
+    background-color: $error;
+
+    &:hover {
+      background-color: $errorHover;
+    }
+  }
+
+  &:disabled, &.disabled {
+    background-color: $border;
+
+    cursor: not-allowed;
+  }
+}

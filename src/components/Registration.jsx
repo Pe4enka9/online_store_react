@@ -46,19 +46,17 @@ export default function Registration({API_URL}) {
     };
 
     return (
-        <>
+        <form onSubmit={handleSubmit}>
             <h1>Регистрация</h1>
 
-            <form onSubmit={handleSubmit}>
-                <Input label="Email" type="email" name="email" id="email" value={formData.email} onChange={handleChange}
-                       placeholder="your_email@example.com" error={errors.email}/>
-                <Input label="Пароль" type="password" name="password" id="password" value={formData.password}
-                       onChange={handleChange} placeholder="Пароль" error={errors.password}/>
+            <Input label="Email" type="email" name="email" id="email" value={formData.email} onChange={handleChange}
+                   placeholder="your_email@example.com" error={errors.email}/>
+            <Input label="Пароль" type="password" name="password" id="password" value={formData.password}
+                   onChange={handleChange} placeholder="Пароль" error={errors.password}/>
 
-                <Button type="submit" loading={loading}>Зарегистрироваться</Button>
+            <Button type="submit" loading={loading}>Зарегистрироваться</Button>
 
-                <p>Уже есть аккаунт? <Link to="/login">Войти</Link></p>
-            </form>
-        </>
+            <p>Уже есть аккаунт? <Link to="/login">Войти</Link></p>
+        </form>
     )
 }

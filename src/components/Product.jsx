@@ -25,12 +25,14 @@ export default function Product({API_URL, token, id, name, description, price, i
             </div>
 
             <h3>{name}</h3>
-            <p>{description}</p>
-            <p className="price">{price}</p>
+            {description && <p>{description}</p>}
+            <p className="price">{price} &#8381;</p>
             <p className="category">{category}</p>
 
-            <Link to={`/products/${id}`} className="btn">Подробнее</Link>
-            <Button onClick={handleBuy}>Купить</Button>
+            <div className="buttons">
+                <Link to={`/products/${id}`} className="btn">Подробнее</Link>
+                <Button onClick={handleBuy}>Купить</Button>
+            </div>
         </div>
     )
 }

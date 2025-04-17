@@ -1,0 +1,63 @@
+form {
+  width: fit-content;
+
+  padding: 3rem;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  background-color: $card;
+
+  border: .2rem solid $border;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    label {
+      font-size: $font;
+      font-weight: 400;
+    }
+
+    input {
+      min-width: 25rem;
+
+      padding: .5em .7em;
+
+      outline: none;
+      border: .2rem solid $border;
+      -webkit-border-radius: $smallRadius;
+      -moz-border-radius: $smallRadius;
+      border-radius: $smallRadius;
+
+      font-size: $font;
+      font-weight: 400;
+
+      transition: border-color .5s ease;
+
+      &:focus {
+        border-color: $main;
+      }
+    }
+  }
+
+  p {
+    a {
+      color: $main;
+
+      font-size: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
-export default function Category({name, onClick}) {
+export default function Category({name, onClick, isActive}) {
     return (
-        <div className="category" onClick={onClick}>
+        <div className={`category ${isActive ? 'active' : ''}`} onClick={onClick}>
             <h3>{name}</h3>
         </div>
     )
