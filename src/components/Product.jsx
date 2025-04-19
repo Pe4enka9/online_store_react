@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import Button from "./Button.jsx";
+import Loader from "./Loader.jsx";
 
 export default function Product({API_URL, token, id, name, description, price, image_url, category}) {
     const [loading, setLoading] = useState(false);
@@ -20,19 +21,25 @@ export default function Product({API_URL, token, id, name, description, price, i
 
     return (
         <div className="product">
-            <div className="img-container">
-                <img src={image_url} alt="Фото товара"/>
-            </div>
+            {loading ? (
+                <Loader loading={loading}/>
+            ) : (
+                <>
+                    <div className="img-container">
+                        <img src={image_url} alt="Фото товара"/>
+                    </div>
 
-            <h3>{name}</h3>
-            {description && <p>{description}</p>}
-            <p className="price">{price} &#8381;</p>
-            <p className="category">{category}</p>
+                    <h3>{name}</h3>
+                    {description && <p>{description}</p>}
+                    <p className="price">{price} &#8381;</p>
+                    <p className="category">{category}</p>
 
-            <div className="buttons">
-                <Link to={`/products/${id}`} className="btn">Подробнее</Link>
-                <Button onClick={handleBuy}>Купить</Button>
-            </div>
+                    <div className="buttons">
+                        <Link to={`/products/${id}`} className="btn">Подробнее</Link>
+                        <Button onClick={handleBuy}>Купить</Button>
+                    </div>
+                </>
+            )}
         </div>
     )
 }

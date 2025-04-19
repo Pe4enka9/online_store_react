@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Product from "./Product.jsx";
 import Category from "./Category.jsx";
+import Loader from "./Loader.jsx";
 
 export default function AllProducts({API_URL, token}) {
     useEffect(() => {
@@ -72,11 +73,15 @@ export default function AllProducts({API_URL, token}) {
             </section>
 
             <section className="products-container">
-                {products.map(product => (
-                    <Product key={product.id} API_URL={API_URL} token={token} id={product.id} name={product.name}
-                             description={product.description} price={product.price} image_url={product.image_url}
-                             category={product.category}/>
-                ))}
+                {loading ? (
+                    <Loader loading={loading}/>
+                ) : (
+                    products.map(product => (
+                        <Product key={product.id} API_URL={API_URL} token={token} id={product.id} name={product.name}
+                                 description={product.description} price={product.price} image_url={product.image_url}
+                                 category={product.category}/>
+                    ))
+                )}
             </section>
         </>
     )

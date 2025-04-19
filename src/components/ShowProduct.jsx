@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import Loader from "./Loader.jsx";
 
 export default function ShowProduct({API_URL}) {
     useEffect(() => {
@@ -25,16 +26,24 @@ export default function ShowProduct({API_URL}) {
     }, [API_URL, id]);
 
     return (
-        <>
-            <h1>{product.name}</h1>
+        <section className="show-product">
+            {loading ? (
+                <Loader loading={loading}/>
+            ) : (
+                <>
+                    <h1>{product.name}</h1>
 
-            <div className="img-container">
-                <img src={product.image_url} alt="Фото товара"/>
-            </div>
+                    <div className="img-container">
+                        <img src={product.image_url} alt="Фото товара"/>
+                    </div>
 
-            <p>{product.description}</p>
-            <p className="price">{product.price}</p>
-            <p className="category">{product.category}</p>
-        </>
+                    <div className="info">
+                        <p>{product.description}</p>
+                        <p className="price">{product.price} &#8381;</p>
+                        <p className="category">Категория: {product.category}</p>
+                    </div>
+                </>
+            )}
+        </section>
     )
 }

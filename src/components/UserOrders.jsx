@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import Order from "./Order.jsx";
+import Loader from "./Loader.jsx";
 
 export default function UserOrders({API_URL, token}) {
     useEffect(() => {
@@ -30,7 +31,9 @@ export default function UserOrders({API_URL, token}) {
             <h1 className="mb-3">Заказы</h1>
 
             <section className="orders-container">
-                {orders.map(order => (
+                {loading ? (
+                    <Loader loading={loading}/>
+                ) : orders.map(order => (
                     <Order key={order.id} product={order.product} status={order.status}/>
                 ))}
             </section>
